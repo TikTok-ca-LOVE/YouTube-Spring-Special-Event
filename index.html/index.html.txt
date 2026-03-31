@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tik Tok - CA - Spring Caring Event</title>
+  <title>YouTube Spring Special Event</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -715,13 +715,13 @@
           <div class="logo-pill">
             <div class="logo-dot"></div>
             <span class="maple-badge">🍁</span>
-            <span>TIK TOK • CA • SPRING</span>
+            <span>YouTube Spring Special Event</span>
           </div>
           <h1 class="title">
-            <span class="accent">Tik Tok • Canada • Spring Caring Event</span>
+            <span class="accent">YouTube Spring Special Event Caring Event</span>
           </h1>
           <p class="subtitle">
-            A more formal Canada themed event experience with refined Tik Tok inspired tones and an upgraded fixed grand reward for eligible participants.
+            A little encouragement can brighten the whole day.
           </p>
         </header>
 
@@ -737,7 +737,7 @@
                     </div>
                     <div class="prize-text">
                       <div class="prize-tag">1 • Event display</div>
-                      <div class="prize-name">Premium Tea Gift Set</div>
+                      <div class="prize-name">Prize 1 Premium Tea Gift Box Set</div>
                     </div>
                   </div>
                 </li>
@@ -748,7 +748,7 @@
                     </div>
                     <div class="prize-text">
                       <div class="prize-tag">2 • Event display</div>
-                      <div class="prize-name">Spring Gift Display</div>
+                      <div class="prize-name">Prize 2 Light Luxury Custom Cosmetics Set</div>
                     </div>
                   </div>
                 </li>
@@ -759,7 +759,7 @@
                     </div>
                     <div class="prize-text">
                       <div class="prize-tag">3 • Event display</div>
-                      <div class="prize-name">Event Showcase Display</div>
+                      <div class="prize-name">Prize 3 Premium Coffee Machine Set</div>
                     </div>
                   </div>
                 </li>
@@ -770,18 +770,18 @@
                     </div>
                     <div class="prize-text">
                       <div class="prize-tag">4 • Event display</div>
-                      <div class="prize-name">Caring Event Gift Display</div>
+                      <div class="prize-name">Prize 4 Custom Charity Fashion Accessories</div>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="prize-card featured-fixed">
+                  <div class="prize-card ">
                     <div class="prize-image-wrap">
                       <img src="prize5.jpg" alt="Prize 5 Mystery Grand Prize iPhone 17 Pro Max" />
                     </div>
                     <div class="prize-text">
-                      <div class="prize-tag">5 • Mystery Grand Prize</div>
-                      <div class="prize-name">iPhone 17 Pro Max</div>
+                      <div class="prize-tag">5 • Event display</div>
+                      <div class="prize-name">Prize 5 Mystery Grand Prize</div>
                     </div>
                   </div>
                 </li>
@@ -791,14 +791,14 @@
                 Event Region Canada
               </p>
               <p class="event-note">
-                This version uses a more formal dark executive background with Tik Tok cyan pink accents and Canada red white styling.
+                Every new season is a fresh chance to grow improve and move closer to your dreams
               </p>
             </div>
 
             <div class="signature-panel">
               <h2 class="section-title">Signature Confirmation</h2>
               <p class="section-sub">
-                Please sign within the area below Your signature confirms that you are personally taking part in this Canada Spring Caring Event
+                Please sign within the area below Your signature confirms that you are personally taking part in this YouTube Spring Special Event
               </p>
 
               <div class="signature-box">
@@ -865,7 +865,7 @@
               <div class="prize-highlight-text">
                 <div id="resultPrizeTitle" class="prize-highlight-title">Prize 5 Mystery Grand Prize iPhone 17 Pro Max</div>
                 <div class="prize-highlight-desc">
-                  The upgraded fixed featured reward prepared for this Canada Spring Caring Event experience
+                  YouTube Spring Special Event
                 </div>
               </div>
             </div>
@@ -881,13 +881,13 @@
         <section id="step-repeat" class="step">
           <div class="simple-screen">
             <p>
-              You have already completed this Tik Tok Canada Spring Caring Event on this device
+              You have already completed this YouTube Spring Special Event on this device
               <br /><br />
               Your recorded fixed gift for this draw is
               <br />
               <strong>Prize 5 Mystery Grand Prize iPhone 17 Pro Max</strong>
               <br /><br />
-              Thank you for taking part in the Canada Spring Caring Event
+              Thank you for taking part in the YouTube Spring Special Event
             </p>
           </div>
         </section>
@@ -896,7 +896,7 @@
   </div>
 
   <script>
-    const DRAW_STATE_KEY = "tiktokCA_springCaring_drawStatus_v2";
+    const DRAW_STATE_KEY = "YouTube Spring Special Event_drawStatus_v2";
     const FIXED_PRIZE_NAME = "Prize 5 Mystery Grand Prize iPhone 17 Pro Max";
     const FIXED_PRIZE_IMAGE = "prize5.jpg";
 
@@ -1009,7 +1009,7 @@
     function handleConfirmPrize() {
       confirmPrizeBtn.disabled = true;
       resultMessage.textContent =
-        "Thank you for taking part in the Tik Tok Canada Spring Caring Event Your fixed gift for this event has been recorded as " +
+        "Thank you for taking part in the YouTube Spring Special Event Your fixed gift for this event has been recorded as " +
         FIXED_PRIZE_NAME;
       resultMessage.style.display = "block";
     }
