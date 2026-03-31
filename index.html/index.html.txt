@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tik Tok - CA - Spring Caring Event</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-deep: #08111f;
+      --bg-navy: #0f172a;
+      --card-dark: rgba(9, 16, 29, 0.94);
+      --card-mid: rgba(15, 23, 42, 0.96);
+      --text-main: #f8fafc;
+      --text-soft: #dbe4f5;
+      --text-dim: #a9b5c7;
+      --line: rgba(255, 255, 255, 0.14);
+      --tiktok-pink: #fe2c55;
+      --tiktok-cyan: #25f4ee;
+      --canada-red: #d80621;
+      --canada-white: #ffffff;
+      --gold: #f5c451;
+      --shadow: rgba(0, 0, 0, 0.55);
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top center, rgba(216, 6, 33, 0.16), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(37, 244, 238, 0.1), transparent 18%),
+        linear-gradient(180deg, #07111f 0%, #0a1425 45%, #050912 100%);
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(216, 6, 33, 0.08), transparent 30%, rgba(37, 244, 238, 0.07) 55%, transparent 72%),
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.03), transparent 56%);
+      pointer-events: none;
+      z-index: -5;
+    }
+
+    .bg-orbs {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -4;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0.7;
+      animation: floatOrb 20s ease-in-out infinite alternate;
+    }
+
+    .orb--red {
+      width: 360px;
+      height: 360px;
+      top: -100px;
+      left: -80px;
+      background: radial-gradient(circle, rgba(216, 6, 33, 0.34) 0%, rgba(216, 6, 33, 0) 72%);
+    }
+
+    .orb--cyan {
+      width: 280px;
+      height: 280px;
+      bottom: -90px;
+      right: -40px;
+      background: radial-gradient(circle, rgba(37, 244, 238, 0.22) 0%, rgba(37, 244, 238, 0) 72%);
+      animation-duration: 25s;
+    }
+
+    .orb--white {
+      width: 240px;
+      height: 240px;
+      top: 35%;
+      right: 22%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 72%);
+      animation-duration: 28s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(40px, -25px, 0) scale(1.06); }
+      100% { transform: translate3d(-22px, 28px, 0) scale(1.12); }
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.55;
+      animation: driftGrid 42s linear infinite;
+      pointer-events: none;
+      z-index: -3;
+    }
+
+    @keyframes driftGrid {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(-84px, -84px, 0); }
+    }
+
+    .scanline {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.055) 0,
+        rgba(255, 255, 255, 0.055) 1px,
+        transparent 1px,
+        transparent 5px
+      );
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .top-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--canada-red), var(--canada-white), var(--tiktok-cyan), var(--tiktok-pink));
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+      z-index: 10;
+    }
+
+    .outer {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 20px 12px 28px;
+    }
+
+    .card {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+        radial-gradient(circle at top left, rgba(216, 6, 33, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(37, 244, 238, 0.08), transparent 24%),
+        linear-gradient(180deg, rgba(13, 21, 36, 0.98), rgba(5, 10, 18, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.52),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), transparent 35%, rgba(255,255,255,0.01));
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+      padding: 22px 18px 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #edf2f7;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--tiktok-pink), var(--tiktok-cyan));
+      box-shadow: 0 0 14px rgba(254, 44, 85, 0.65);
+    }
+
+    .maple-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(216, 6, 33, 0.16);
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 7px;
+    }
+
+    .title .accent {
+      background: linear-gradient(90deg, #ffffff, #ffe1e6 40%, #9ffcf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    .step { display: none; }
+    .step.active { display: block; }
+
+    .main-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .main-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .card-inner {
+        padding: 18px 14px 18px;
+      }
+
+      .title {
+        font-size: 1.55rem;
+      }
+    }
+
+    .prizes-panel,
+    .signature-panel,
+    .prize-highlight {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.26);
+    }
+
+    .prizes-panel {
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+
+    .prize-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .prize-card {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 9px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .prize-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.16);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.24);
+    }
+
+    .prize-card.featured-fixed {
+      border-color: rgba(245, 196, 81, 0.45);
+      background:
+        linear-gradient(180deg, rgba(245,196,81,0.08), rgba(255,255,255,0.02)),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: 0 0 0 1px rgba(245, 196, 81, 0.12) inset, 0 18px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .prize-image-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: radial-gradient(circle, rgba(255,255,255,0.14), rgba(12,18,28,0.98));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .prize-image-wrap img,
+    .prize-highlight-img img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .prize-text {
+      font-size: 0.9rem;
+      line-height: 1.34;
+    }
+
+    .prize-tag {
+      font-size: 0.77rem;
+      color: var(--text-dim);
+      margin-bottom: 3px;
+      letter-spacing: 0.02em;
+    }
+
+    .prize-card.featured-fixed .prize-tag {
+      color: #ffe08a;
+    }
+
+    .prize-name {
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    .event-meta,
+    .event-note {
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .event-note {
+      margin-top: 5px;
+      color: #cad7ea;
+    }
+
+    .signature-panel {
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .section-sub {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+      line-height: 1.55;
+    }
+
+    .signature-box {
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,0.18);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.015), rgba(255,255,255,0.015) 10px, transparent 10px, transparent 20px);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    #signaturePad {
+      width: 100%;
+      height: 160px;
+      display: block;
+      touch-action: none;
+      cursor: crosshair;
+    }
+
+    .signature-hint {
+      position: absolute;
+      left: 12px;
+      bottom: 8px;
+      font-size: 0.76rem;
+      color: rgba(219, 228, 245, 0.72);
+      pointer-events: none;
+    }
+
+    .signature-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.82rem;
+      margin-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    .signature-actions label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      color: #eef2f7;
+    }
+
+    .signature-actions input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--tiktok-cyan);
+      cursor: pointer;
+    }
+
+    .clear-btn {
+      border: none;
+      background: transparent;
+      color: #c7d0de;
+      font-size: 0.79rem;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .draw-action {
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .primary-btn {
+      width: 100%;
+      max-width: 280px;
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      background: linear-gradient(120deg, var(--canada-red), var(--tiktok-pink) 45%, var(--tiktok-cyan));
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.36);
+    }
+
+    .primary-btn:hover:not([disabled]),
+    .secondary-btn:hover:not([disabled]) {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .primary-btn[disabled] {
+      opacity: 0.42;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .secondary-btn {
+      padding: 11px 22px;
+      font-size: 0.92rem;
+      background: linear-gradient(180deg, #ffffff, #eef2f7);
+      color: #08111f;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
+    }
+
+    .foot-note {
+      margin-top: 9px;
+      font-size: 0.79rem;
+      color: var(--text-dim);
+      text-align: center;
+      line-height: 1.45;
+    }
+
+    .wait-screen,
+    .result-screen,
+    .simple-screen {
+      padding: 20px 6px 8px;
+      text-align: center;
+    }
+
+    .spinner-orbit {
+      position: relative;
+      width: 164px;
+      height: 164px;
+      margin: 0 auto 16px;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1.5px solid transparent;
+      border-top-color: rgba(37, 244, 238, 0.95);
+      border-right-color: rgba(216, 6, 33, 0.9);
+      animation: orbitSpin 1.8s linear infinite;
+      filter: drop-shadow(0 0 10px rgba(37, 244, 238, 0.26));
+    }
+
+    .orbit--middle {
+      inset: 14px;
+      animation-duration: 2.2s;
+      animation-direction: reverse;
+      opacity: 0.82;
+    }
+
+    .orbit--inner {
+      inset: 28px;
+      animation-duration: 1.95s;
+      opacity: 0.9;
+    }
+
+    .core-dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, #ffffff, #eef2f7);
+      box-shadow: 0 0 16px rgba(255,255,255,0.4), 0 0 28px rgba(37,244,238,0.3);
+    }
+
+    .core-pulse {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(255,255,255,0.22);
+      animation: corePulse 2.2s ease-out infinite;
+    }
+
+    @keyframes orbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes corePulse {
+      0% { opacity: 0.65; transform: translate(-50%, -50%) scale(0.7); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.32); }
+    }
+
+    .wait-title,
+    .result-title {
+      font-size: 1.16rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .wait-sub,
+    .result-sub,
+    .simple-screen {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.11);
+      font-size: 0.86rem;
+      margin-bottom: 12px;
+    }
+
+    .prize-highlight {
+      margin: 0 auto 14px;
+      max-width: 400px;
+      border-radius: 18px;
+      padding: 12px;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prize-highlight::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(130deg, rgba(245,196,81,0.12), transparent 38%, rgba(37,244,238,0.06));
+      pointer-events: none;
+    }
+
+    .prize-highlight-img {
+      width: 88px;
+      height: 88px;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .prize-highlight-text {
+      position: relative;
+      z-index: 1;
+      font-size: 0.9rem;
+    }
+
+    .prize-highlight-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: #fff4c8;
+    }
+
+    .prize-highlight-desc,
+    .result-message {
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+
+    .result-message {
+      margin-top: 12px;
+    }
+
+    .simple-screen strong {
+      color: #fff4c8;
+      font-weight: 700;
+    }
+
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 8px;
+      height: 14px;
+      border-radius: 2px;
+      opacity: 0.95;
+      pointer-events: none;
+      z-index: 50;
+      animation: confettiFall 3.2s linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
+      100% { transform: translate3d(0, 110vh, 0) rotateZ(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-banner"></div>
+
+  <div class="bg-orbs">
+    <div class="orb orb--red"></div>
+    <div class="orb orb--cyan"></div>
+    <div class="orb orb--white"></div>
+  </div>
+  <div class="grid"></div>
+  <div class="scanline"></div>
+
+  <div class="outer">
+    <div class="card">
+      <div class="card-inner">
+        <header class="header">
+          <div class="logo-pill">
+            <div class="logo-dot"></div>
+            <span class="maple-badge">🍁</span>
+            <span>TIK TOK • CA • SPRING</span>
+          </div>
+          <h1 class="title">
+            <span class="accent">Tik Tok • Canada • Spring Caring Event</span>
+          </h1>
+          <p class="subtitle">
+            A more formal Canada themed event experience with refined Tik Tok inspired tones and an upgraded fixed grand reward for eligible participants.
+          </p>
+        </header>
+
+        <section id="step-main" class="step">
+          <div class="main-layout">
+            <div class="prizes-panel">
+              <p class="section-label">Gift Lineup</p>
+              <ul class="prize-list">
+                <li>
+                  <div class="prize-card">
+                    <div class="prize-image-wrap">
+                      <img src="prize1.jpg" alt="Premium Tea Gift Set" />
+                    </div>
+                    <div class="prize-text">
+                      <div class="prize-tag">1 • Event display</div>
+                      <div class="prize-name">Premium Tea Gift Set</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="prize-card">
+                    <div class="prize-image-wrap">
+                      <img src="prize2.jpg" alt="Spring Gift Display" />
+                    </div>
+                    <div class="prize-text">
+                      <div class="prize-tag">2 • Event display</div>
+                      <div class="prize-name">Spring Gift Display</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="prize-card">
+                    <div class="prize-image-wrap">
+                      <img src="prize3.jpg" alt="Event Showcase Display" />
+                    </div>
+                    <div class="prize-text">
+                      <div class="prize-tag">3 • Event display</div>
+                      <div class="prize-name">Event Showcase Display</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="prize-card">
+                    <div class="prize-image-wrap">
+                      <img src="prize4.jpg" alt="Caring Event Gift Display" />
+                    </div>
+                    <div class="prize-text">
+                      <div class="prize-tag">4 • Event display</div>
+                      <div class="prize-name">Caring Event Gift Display</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="prize-card featured-fixed">
+                    <div class="prize-image-wrap">
+                      <img src="prize5.jpg" alt="Prize 5 Mystery Grand Prize iPhone 17 Pro Max" />
+                    </div>
+                    <div class="prize-text">
+                      <div class="prize-tag">5 • Mystery Grand Prize</div>
+                      <div class="prize-name">iPhone 17 Pro Max</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <p class="event-meta">
+                Event Region Canada
+              </p>
+              <p class="event-note">
+                This version uses a more formal dark executive background with Tik Tok cyan pink accents and Canada red white styling.
+              </p>
+            </div>
+
+            <div class="signature-panel">
+              <h2 class="section-title">Signature Confirmation</h2>
+              <p class="section-sub">
+                Please sign within the area below Your signature confirms that you are personally taking part in this Canada Spring Caring Event
+              </p>
+
+              <div class="signature-box">
+                <canvas id="signaturePad"></canvas>
+                <div class="signature-hint">
+                  Sign here with your finger or mouse
+                </div>
+              </div>
+
+              <div class="signature-actions">
+                <label>
+                  <input type="checkbox" id="confirmCheckbox" />
+                  <span>I confirm this is my signature</span>
+                </label>
+                <button type="button" id="clearSignatureBtn" class="clear-btn">
+                  Clear Signature
+                </button>
+              </div>
+
+              <div class="draw-action">
+                <button id="startDrawBtn" class="primary-btn" disabled>
+                  <span>Start Lucky Draw</span>
+                </button>
+              </div>
+
+              <p class="foot-note">
+                For consistency this demo records one completed draw per device and returns Prize 5 as the final displayed reward
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-wait" class="step">
+          <div class="wait-screen">
+            <div class="spinner-orbit">
+              <div class="orbit orbit--outer"></div>
+              <div class="orbit orbit--middle"></div>
+              <div class="orbit orbit--inner"></div>
+              <div class="core-dot"></div>
+              <div class="core-pulse"></div>
+            </div>
+            <p class="wait-title">Drawing your gift</p>
+            <p class="wait-sub">
+              Securely matching your entry with the Canada Spring Caring Event
+            </p>
+          </div>
+        </section>
+
+        <section id="step-result" class="step">
+          <div class="result-screen">
+            <div class="result-badge">
+              <span>🎉</span>
+              <span>Gift Revealed</span>
+            </div>
+            <h2 class="result-title">You have unlocked your gift</h2>
+            <p class="result-sub">
+              Your fixed reward for this draw is
+            </p>
+
+            <div class="prize-highlight">
+              <div class="prize-highlight-img">
+                <img id="resultPrizeImg" src="prize5.jpg" alt="Prize 5 Mystery Grand Prize iPhone 17 Pro Max" />
+              </div>
+              <div class="prize-highlight-text">
+                <div id="resultPrizeTitle" class="prize-highlight-title">Prize 5 Mystery Grand Prize iPhone 17 Pro Max</div>
+                <div class="prize-highlight-desc">
+                  The upgraded fixed featured reward prepared for this Canada Spring Caring Event experience
+                </div>
+              </div>
+            </div>
+
+            <button id="confirmPrizeBtn" class="secondary-btn">
+              I have noted my gift
+            </button>
+
+            <p id="resultMessage" class="result-message" style="display: none;"></p>
+          </div>
+        </section>
+
+        <section id="step-repeat" class="step">
+          <div class="simple-screen">
+            <p>
+              You have already completed this Tik Tok Canada Spring Caring Event on this device
+              <br /><br />
+              Your recorded fixed gift for this draw is
+              <br />
+              <strong>Prize 5 Mystery Grand Prize iPhone 17 Pro Max</strong>
+              <br /><br />
+              Thank you for taking part in the Canada Spring Caring Event
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const DRAW_STATE_KEY = "tiktokCA_springCaring_drawStatus_v2";
+    const FIXED_PRIZE_NAME = "Prize 5 Mystery Grand Prize iPhone 17 Pro Max";
+    const FIXED_PRIZE_IMAGE = "prize5.jpg";
+
+    const steps = document.querySelectorAll(".step");
+    function setActiveStep(id) {
+      steps.forEach((s) => s.classList.toggle("active", s.id === id));
+    }
+
+    const canvas = document.getElementById("signaturePad");
+    const ctx = canvas.getContext("2d");
+    let drawing = false;
+    let hasSigned = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      ctx.lineWidth = 2.2;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.strokeStyle = "#f8fafc";
+    }
+
+    function getPos(e) {
+      const rect = canvas.getBoundingClientRect();
+      if (e.touches && e.touches.length) {
+        return {
+          x: e.touches[0].clientX - rect.left,
+          y: e.touches[0].clientY - rect.top
+        };
+      }
+      return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+    }
+
+    function beginSignature(e) {
+      e.preventDefault();
+      drawing = true;
+      hasSigned = true;
+      const pos = getPos(e);
+      lastX = pos.x;
+      lastY = pos.y;
+      updateDrawButtonState();
+    }
+
+    function drawSignature(e) {
+      if (!drawing) return;
+      e.preventDefault();
+      const pos = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      lastX = pos.x;
+      lastY = pos.y;
+    }
+
+    function endSignature(e) {
+      if (!drawing) return;
+      e.preventDefault();
+      drawing = false;
+    }
+
+    function clearSignature() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hasSigned = false;
+      updateDrawButtonState();
+    }
+
+    const confirmCheckbox = document.getElementById("confirmCheckbox");
+    const clearSignatureBtn = document.getElementById("clearSignatureBtn");
+    const startDrawBtn = document.getElementById("startDrawBtn");
+    const confirmPrizeBtn = document.getElementById("confirmPrizeBtn");
+    const resultMessage = document.getElementById("resultMessage");
+    const resultPrizeImg = document.getElementById("resultPrizeImg");
+    const resultPrizeTitle = document.getElementById("resultPrizeTitle");
+
+    function updateDrawButtonState() {
+      startDrawBtn.disabled = !(hasSigned && confirmCheckbox.checked);
+    }
+
+    function launchConfetti() {
+      const colours = ["#fe2c55", "#25f4ee", "#ffffff", "#d80621", "#f5c451"];
+      const pieces = 88;
+      for (let i = 0; i < pieces; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti";
+        piece.style.backgroundColor = colours[Math.floor(Math.random() * colours.length)];
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.animationDelay = Math.random() * 0.7 + "s";
+        piece.style.animationDuration = 2.5 + Math.random() * 1.1 + "s";
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 4200);
+      }
+    }
+
+    function handleStartDraw() {
+      localStorage.setItem(DRAW_STATE_KEY, FIXED_PRIZE_NAME);
+      setActiveStep("step-wait");
+      setTimeout(() => {
+        setActiveStep("step-result");
+        launchConfetti();
+      }, 2400);
+    }
+
+    function handleConfirmPrize() {
+      confirmPrizeBtn.disabled = true;
+      resultMessage.textContent =
+        "Thank you for taking part in the Tik Tok Canada Spring Caring Event Your fixed gift for this event has been recorded as " +
+        FIXED_PRIZE_NAME;
+      resultMessage.style.display = "block";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (resultPrizeImg) {
+        resultPrizeImg.src = FIXED_PRIZE_IMAGE;
+        resultPrizeImg.alt = FIXED_PRIZE_NAME;
+      }
+
+      if (resultPrizeTitle) {
+        resultPrizeTitle.textContent = FIXED_PRIZE_NAME;
+      }
+      const state = localStorage.getItem(DRAW_STATE_KEY);
+      if (state) {
+        setActiveStep("step-repeat");
+      } else {
+        setActiveStep("step-main");
+      }
+
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      canvas.addEventListener("mousedown", beginSignature);
+      canvas.addEventListener("mousemove", drawSignature);
+      canvas.addEventListener("mouseup", endSignature);
+      canvas.addEventListener("mouseleave", endSignature);
+
+      canvas.addEventListener("touchstart", beginSignature, { passive: false });
+      canvas.addEventListener("touchmove", drawSignature, { passive: false });
+      canvas.addEventListener("touchend", endSignature, { passive: false });
+      canvas.addEventListener("touchcancel", endSignature, { passive: false });
+
+      clearSignatureBtn.addEventListener("click", clearSignature);
+      confirmCheckbox.addEventListener("change", updateDrawButtonState);
+      startDrawBtn.addEventListener("click", handleStartDraw);
+      confirmPrizeBtn.addEventListener("click", handleConfirmPrize);
+    });
+  </script>
+</body>
+</html>
